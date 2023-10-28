@@ -16,21 +16,21 @@ const App = () => {
 
   return (
      <div className='container'>
-      <h1 className='title'>Image Search</h1>
+      <h1 className='title'>Unsplash Image Search</h1>
       <div className='search-section'>
         <Form onSubmit={handleSearch}>
           <Form.Control
             type='search'
-            placeholder='Type somethig to get and image..'
+            placeholder='Type here to get and image..'
             className='search-input'
             ref={searchInput} />
         </Form>
       </div>
       <div className='filters'>
-      <div onClick={() => handleSelection('nature')}>Nature</div>
-      <div onClick={() => handleSelection('birds')}>Birds</div>
-      <div onClick={() => handleSelection('cats')}>Cats</div>
-      <div onClick={() => handleSelection('shoes')}>Shoes</div>
+      <div onClick={() => handleSelection('Cybersecurity')}>Cybersecurity</div>
+      <div onClick={() => handleSelection('Climbing')}>Climbing</div>
+      <div onClick={() => handleSelection('Drums')}>Drums</div>
+      <div onClick={() => handleSelection('Porto')}>Porto</div>
       </div>
      </div>
   );
