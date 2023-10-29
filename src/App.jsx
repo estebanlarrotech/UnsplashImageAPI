@@ -1,17 +1,41 @@
-import React, {useRef} from 'react';
+import axios from 'axios';
+import React, {useEffect, useRef} from 'react';
 import { Form } from 'react-bootstrap';
 import './index.css';
 
-const App = () => {
+const API_URL = 'https://api.unsplash.com/search/photos';
+const IMAGES_PER_PAGE = 20;
+
+const App = () =>  {
+  console.log('key',import.meta.env.VITE_API_KEY);
   const searchInput = useRef(null);
+  
+
+const fetchImages = async () => {
+  try {
+  const result = await axios.get(
+    `${API_URL}?query=${
+      searchInput.current.value
+    }&page=1&per_page=${IMAGES_PER_PAGE}
+    &client_id=${
+      import.meta.env.VITE_API_KEY}`
+      );
+    console.log('result', result.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
  
+  
   const handleSearch = (event) => {
     event.preventDefault();
     console.log(searchInput.current.value);
+    fetchImages();
   };
 
   const handleSelection = (selection) => {
     searchInput.current.value = selection;
+    fetchImages();
   };
 
   return (
